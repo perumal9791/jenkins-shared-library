@@ -15,18 +15,18 @@ def call(body) {
 			}		
 			stage ('Compile Stage') {   
 				sh "echo 'building ${config.projectName} ...'"
-				withMaven(maven : 'maven_3_5_0') {
-					sh 'mvn clean compile'
+				withMaven(maven : 'maven2018') {
+					bat 'mvn clean compile'
 				}
 			}
 			stage ('Testing Stage') {
-				withMaven(maven : 'maven_3_5_0') {
-					sh 'mvn test'
+				withMaven(maven : 'maven2018') {
+					bat 'mvn test'
 				}
 			}
 			stage ('Deployment Stage') {
-				withMaven(maven : 'maven_3_5_0') {
-					sh 'mvn deploy'
+				withMaven(maven : 'maven2018') {
+					bat 'mvn deploy'
 				}
 			}			       
 		} catch (err) {

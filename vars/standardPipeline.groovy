@@ -14,7 +14,7 @@ def call(body) {
 				checkout scm
 			}		
 			stage ('Compile Stage') {   
-				sh "echo 'building ${config.projectName} ...'"
+				bat "echo 'building ${config.projectName} ...'"
 				withMaven(maven : 'maven2018') {
 					bat 'mvn clean compile'
 				}
